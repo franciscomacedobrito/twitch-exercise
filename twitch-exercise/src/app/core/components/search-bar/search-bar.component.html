@@ -1,0 +1,11 @@
+<div class="flex-horizontal-center">
+  <form class="search-form" [formGroup]="searchForm" (submit)="searchStream()">
+    <mat-form-field [floatLabel]="'never'">
+      <input class="search-input" matInput formControlName="searchInput" placeholder="Search streams">
+      <mat-icon matPrefix>search</mat-icon>
+    </mat-form-field>
+  </form>
+  <mat-form-field style="width: 50px; margin-left: 20px">
+    <input type="number" [(ngModel)]="searchLimit" matInput max="100">
+  </mat-form-field>
+</div>

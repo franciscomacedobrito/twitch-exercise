@@ -1,0 +1,60 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$primary: mat-palette($mat-deep-purple, 500);
+$accent: mat-palette($mat-purple, 600, 100, 800);
+$top-bar-color: #2c2b2b;
+$warn: mat-palette($mat-red, 600);
+$theme: mat-light-theme($primary, $accent, $warn);
+@include angular-material-theme($theme);
+@include mat-button-theme(mat-light-theme($primary, $primary, $primary));
+@include mat-input-theme(mat-light-theme($primary, $primary, $primary))
+
+@function generate-palette-by-color($color) {
+  @return mat-palette((
+    50: $color,
+    100: $color,
+    200: $color,
+    300: $color,
+    400: $color,
+    500: $color,
+    600: $color,
+    700: $color,
+    800: $color,
+    900: $color,
+    A100: $color,
+    A200: $color,
+    A400: $color,
+    A700: $color,
+    contrast: (
+      50: $dark-primary-text,
+      100: $dark-primary-text,
+      200: $dark-primary-text,
+      300: $dark-primary-text,
+      400: $dark-primary-text,
+      500: $light-primary-text,
+      600: $light-primary-text,
+      700: $light-primary-text,
+      800: $light-primary-text,
+      900: $light-primary-text,
+      A100: $dark-primary-text,
+      A200: $light-primary-text,
+      A400: $light-primary-text,
+      A700: $light-primary-text,
+    )
+  ));
+}
+
+//palettes
+$top-bar-palette: generate-palette-by-color($top-bar-color);
+$primary-pallet: generate-palette-by-color($top-bar-color);
+
+@include mat-menu-theme(mat-dark-theme($primary, $primary))
+// themes exceptions
+.app-login-form--dark {
+  $theme: mat-dark-theme($primary, $primary, $warn);
+  @include angular-material-theme($theme);
+  @include mat-button-theme(mat-light-theme($primary, $primary, $primary));
+  color: #fff;
+}

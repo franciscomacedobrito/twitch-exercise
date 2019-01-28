@@ -1,0 +1,14 @@
+#app-stream-list-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  overflow-y: auto;
+}
+
+mat-progress-bar {
+  position: absolute;
+  top: 64px;
+  z-index: 100;
+}
+

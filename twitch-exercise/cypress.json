@@ -1,0 +1,14 @@
+{
+  "baseUrl": "http://localhost:4200/#",
+  "viewportWidth": 1280,
+  "viewportHeight": 800,
+  "chromeWebSecurity": false,
+  "integrationFolder": "cypress/happy-path",
+  "trashAssetsBeforeRuns": true,
+  "video": false,
+  "projectId": "6557ip",
+  "env": {
+    "host": "http://localhost:8080/",
+    "api": "esp-api-v1/"
+  }
+}

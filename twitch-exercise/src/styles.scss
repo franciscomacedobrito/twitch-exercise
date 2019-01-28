@@ -1,0 +1,40 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/theming';
+@import './theme.scss';
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
+$custom-typography: mat-typography-config(
+  $body-1: mat-typography-level(18px, 24px, 400),
+  $button: mat-typography-level(18px, 24px, 400)
+);
+@include mat-core($custom-typography);
+
+.flex-vertical-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-horizontal-center {
+  display: flex;
+  justify-content: center;
+}
+
+.full-width {
+  width: 100%;
+}
+
+//#app-stream-list-wrapper:hover img:not(:hover) {
+//  filter: grayscale(37%) blur(1px);
+//  transition: .2s ease;
+//  opacity: .7;
+//}

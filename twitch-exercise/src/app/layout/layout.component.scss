@@ -1,0 +1,17 @@
+$background-color: #2c2b2b;
+
+.app-toolbar {
+  background-color: #131313;
+  mat-toolbar-row {
+    padding-left: 32px;
+  }
+  .app-toolbar--title {
+    text-align: center;
+    width: calc(100% - 200px);
+  }
+}
+
+.router-container {
+  background-color: $background-color;
+  height: calc(100% - 64px);
+}

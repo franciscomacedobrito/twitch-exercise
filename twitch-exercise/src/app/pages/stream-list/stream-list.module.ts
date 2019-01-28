@@ -9,7 +9,6 @@ import { StreamListComponent } from './stream-list.component';
   declarations: [StreamListComponent],
   imports: [
     CommonModule,
-    InfiniteScrollModule,
     MatProgressBarModule,
     ScrollingModule,
     StreamCardModule

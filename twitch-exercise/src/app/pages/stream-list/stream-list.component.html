@@ -1,4 +1,4 @@
 <div id="app-stream-list-wrapper" class="flex-horizontal-center">
   <mat-progress-bar mode="indeterminate" *ngIf="loadingStreams"></mat-progress-bar>
-  <stream-card *ngFor="let stream of streamList" [stream]="stream"></stream-card>
+  <stream-card *ngFor="let stream of streamList" [stream]="stream" [width]="350" [height]="220" [showStatus]="true"></stream-card>
 </div>

@@ -1,9 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { backendConfig, clientConfig } from '../../../assets/environments/environment';
 import { StreamResponse } from '../models/stream-response.model';
 import { StreamSearchEventModel } from '../models/stream-search-event.model';
+import { Stream } from '../models/stream.model';
 
 @Injectable({ providedIn: 'root' })
 export class StreamService {
@@ -23,6 +25,10 @@ export class StreamService {
     return this.subject.asObservable();
   }
 
+  public getFilteredStreams(searchTerm: string, limit: number): Observable<Stream[]> {
+    return this.transformStreamObservable(this.searchStreams(searchTerm, limit));
+  }
+
   searchStreams(searchTerm: string, limit: number): Observable<StreamResponse> {
     const params = {
       query: searchTerm,
@@ -32,6 +38,12 @@ export class StreamService {
       headers: this.headers,
       params: params
     });
+  }
+
+  private transformStreamObservable(observable:  Observable<StreamResponse>): Observable<Stream[]> {
+    return observable.pipe(
+      map<StreamResponse, Stream[]>(response => response.streams)
+    );
   }
 
 }

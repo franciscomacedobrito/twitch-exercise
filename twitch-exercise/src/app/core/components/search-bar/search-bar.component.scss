@@ -11,3 +11,27 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px #ede7f6 inset !important;
 }
+
+mat-option {
+  height: 90px;
+}
+.mat-option-text {
+  height: 90px;
+}
+
+stream-card {
+  display: inline-block;
+  height: 90px;
+  bottom: -10px;
+  position: relative;
+}
+.stream-card {
+  height: 90px;
+}
+
+.search-form-auto-complete-text {
+  display: inline-block;
+  position: relative;
+  bottom: 40px;
+  color: white;
+}

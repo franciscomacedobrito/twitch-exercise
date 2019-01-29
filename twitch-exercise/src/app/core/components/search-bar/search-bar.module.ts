@@ -9,6 +9,7 @@ import {
   MatInputModule,
   MatProgressBarModule
 } from '@angular/material';
+import { StreamCardModule } from '../stream-card/stream-card.module';
 import { SearchBarComponent } from './search-bar.component';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { SearchBarComponent } from './search-bar.component';
     MatInputModule,
     MatIconModule,
     MatAutocompleteModule,
+    StreamCardModule,
     MatProgressBarModule,
     CommonModule
   ],

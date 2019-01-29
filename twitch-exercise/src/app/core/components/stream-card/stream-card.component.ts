@@ -13,6 +13,9 @@ export class StreamCardComponent implements OnInit {
   }
 
   @Input() stream: Stream;
+  @Input() width: string;
+  @Input() height: string;
+  @Input() showStatus: boolean;
 
   ngOnInit() {
     this.stream.sanitizedThumbnailUrl = this.sanitizeThumbnailUrl(this.stream.preview.template);
@@ -25,7 +28,7 @@ export class StreamCardComponent implements OnInit {
   private sanitizeThumbnailUrl(url: string): string {
     const widthFlag = '{width}';
     const heightFlag = '{height}';
-    return url.replace(widthFlag, '350').replace(heightFlag, '220');
+    return url.replace(widthFlag, this.width).replace(heightFlag, this.height);
   }
 
 }

@@ -51,6 +51,7 @@ $top-bar-palette: generate-palette-by-color($top-bar-color);
 $primary-pallet: generate-palette-by-color($top-bar-color);
 
 @include mat-menu-theme(mat-dark-theme($primary, $primary))
+@include mat-autocomplete-theme(mat-dark-theme($primary, $primary))
 // themes exceptions
 .app-login-form--dark {
   $theme: mat-dark-theme($primary, $primary, $warn);

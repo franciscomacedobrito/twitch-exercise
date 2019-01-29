@@ -1,8 +1,17 @@
 <div class="flex-horizontal-center">
-  <form class="search-form" [formGroup]="searchForm" (submit)="searchStream()">
+  <form class="search-form" (submit)="searchStream()">
     <mat-form-field [floatLabel]="'never'">
-      <input class="search-input" matInput formControlName="searchInput" placeholder="Search streams">
-      <mat-icon matPrefix>search</mat-icon>
+      <input class="search-input" matInput placeholder="Search streams" [formControl]="searchInput" [matAutocomplete]="streamAutoComplete"
+             #streamInput>
+      <mat-progress-bar mode="indeterminate" *ngIf="loadingStreams"></mat-progress-bar>
+      <mat-autocomplete class="search-form-auto-complete" #streamAutoComplete="matAutocomplete"
+                        [displayWith]="displayStreamFn">
+        <mat-option *ngFor="let stream of filteredStreams | async" [value]="stream">
+          <stream-card class="search-form-auto-complete-card" [stream]="stream" [width]="90" [height]="90" [showStatus]="false"></stream-card>
+          <div class="search-form-auto-complete-text">{{stream.channel.status}}</div>
+        </mat-option>
+      </mat-autocomplete>
+      <mat-icon matPrefix (click)="searchStream()">search</mat-icon>
     </mat-form-field>
   </form>
   <mat-form-field style="width: 50px; margin-left: 20px">
